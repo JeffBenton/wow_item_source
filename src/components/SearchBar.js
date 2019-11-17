@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
     render() {
         return (
-            <div>SearchBar</div>
+            <div>
+                <input type="text" />
+                <input type="submit" />
+            </div>
         )
     }
 }
