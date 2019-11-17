@@ -1,8 +1,11 @@
 import React from 'react';
+import SearchBarContainer from './containers/SearchBarContainer';
 
 function App() {
   return (
-      <div></div>
+      <div className="App">
+        <SearchBarContainer />
+      </div>
   );
 }
 
