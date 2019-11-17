@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
+import FilterList from '../components/FilterList';
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -11,6 +12,7 @@ class SearchBarContainer extends Component {
             <Container>
                 <Row>
                     <Col><SearchBar /></Col>
+                    <Col><FilterList /></Col>
                 </Row>
             </Container>
         )
