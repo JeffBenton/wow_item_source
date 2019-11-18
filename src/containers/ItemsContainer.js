@@ -9,8 +9,8 @@ class ItemsContainer extends Component {
     cardProps = {
         name: "Sea-Brawler's Greathelm",
         source: "Dungeon",
-        tier4: ["Bastion of Might", "Pulverizing Blows", "Test of Might", "Crushing Assault", "Simmering Rage", "Callous Reprisal"],
-        tier3: ["Cold Steel, Hot Blood", "Dagger in the Back", "Lord of War", "Deafening Crash"],
+        tier4: ["Bastion of Might", "Callous Reprisal", "Pulverizing Blows", "Simmering Rage", "Test of Might", "Crushing Assault"],
+        tier3: [ "Deafening Crash", "Cold Steel, Hot Blood", "Lord of War", "Dagger in the Back"],
         tier2: ["Earthlink", "Azerite Globules", "Shimmering Haven"],
         tier1: ["Resounding Protection", "Vampiric Speed"]
     };
