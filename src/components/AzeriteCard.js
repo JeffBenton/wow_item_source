@@ -1,20 +1,37 @@
 import React, { Component } from 'react';
 
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 
 class AzeriteCard extends Component {
     render() {
         return (
-            <Container>
-                <Row><Col>{this.props.info.name}</Col></Row>
-                <Row><Col>{this.props.info.source}</Col></Row>
-                <Row><Col>{this.props.info.tier1}</Col></Row>
-                <Row><Col>{this.props.info.tier2}</Col></Row>
-                <Row><Col>{this.props.info.tier3}</Col></Row>
-                <Row><Col>{this.props.info.tier4}</Col></Row>
-            </Container>
+            <Card style={{ width: '18rem'}}>
+                <Card.Body>
+                    <Card.Title>{this.props.info.name}</Card.Title>
+
+                    <Card.Subtitle style={{ paddingBottom: 5 }}>Tier 4</Card.Subtitle>
+                    {this.props.info.tier4.map(trait => (
+                        <Card.Subtitle style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
+                    ))}
+
+                    <Card.Subtitle style={{ paddingBottom: 5, paddingTop: 2 }}>Tier 3</Card.Subtitle>
+                    {this.props.info.tier3.map(trait => (
+                        <Card.Subtitle style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
+                    ))}
+
+                    <Card.Subtitle style={{ paddingBottom: 5, paddingTop: 2 }}>Tier 2</Card.Subtitle>
+                    {this.props.info.tier2.map(trait => (
+                        <Card.Subtitle style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
+                    ))}
+
+                    <Card.Subtitle style={{ paddingBottom: 5, paddingTop: 2 }}>Tier 1</Card.Subtitle>
+                    {this.props.info.tier1.map(trait => (
+                        <Card.Subtitle style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
+                    ))}
+
+                    <Card.Text>Source: {this.props.info.source}</Card.Text>
+                </Card.Body>
+            </Card>
         )
     }
 }
