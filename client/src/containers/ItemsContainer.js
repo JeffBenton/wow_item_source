@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AzeriteCard from '../components/AzeriteCard'
+import AzeriteCard from '../components/Azerite/AzeriteCard'
 
 import Container from 'react-bootstrap/Container'
 import CardColumns from 'react-bootstrap/CardColumns'

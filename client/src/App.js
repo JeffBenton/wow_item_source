@@ -1,6 +1,4 @@
 import React from 'react';
-import SearchBarContainer from './containers/SearchBarContainer';
-import ItemsContainer from './containers/ItemsContainer';
 import NavButtonsContainer from './containers/NavButtonsContainer';
 import AzeriteContainer from './containers/AzeriteContainer';
 

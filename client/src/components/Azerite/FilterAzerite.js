@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-class FilterList extends Component {
+class FilterAzerite extends Component {
 
     state = {
         class: 'Select Class',
@@ -64,4 +64,4 @@ class FilterList extends Component {
     }
 }
 
-export default FilterList
+export default FilterAzerite

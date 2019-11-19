@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import SearchBar from '../components/SearchBar';
-import FilterList from '../components/FilterList';
-import ItemButton from '../components/ItemButton';
+import FilterAzerite from '../components/Azerite/FilterAzerite';
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -15,7 +14,7 @@ class SearchBarContainer extends Component {
             <Container>
                 <Row>
                     <Col><SearchBar /></Col>
-                    <Col><FilterList /></Col>
+                    <Col><FilterAzerite /></Col>
                 </Row>
             </Container>
         )
