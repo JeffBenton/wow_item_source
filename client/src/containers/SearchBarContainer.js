@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import SearchBar from '../components/SearchBar';
 import FilterList from '../components/FilterList';
+import ItemButton from '../components/ItemButton';
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
 
 class SearchBarContainer extends Component {
     render() {
@@ -18,15 +18,17 @@ class SearchBarContainer extends Component {
                     <Col><FilterList /></Col>
                 </Row>
                 <Row>
-                    <Button>Azerite</Button>
-                    <Button>Weapons</Button>
-                    <Button>Trinkets</Button>
+                    <Col><ItemButton name="Azerite" setDisplay={this.props.setDisplay} /></Col>
+                    <Col><ItemButton name="Weapons" setDisplay={this.props.setDisplay} /></Col>
+                    <Col><ItemButton name="Trinkets" setDisplay={this.props.setDisplay} /></Col>
                 </Row>
             </Container>
         )
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    setDisplay: display => dispatch({ type: "SET_DISPLAY", display })
+});
 
-
-export default connect()(SearchBarContainer)
+export default connect(null, mapDispatchToProps)(SearchBarContainer)

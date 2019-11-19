@@ -2,8 +2,8 @@ export default function ItemsReducer(state = {
 
 }, action) {
     switch (action.type) {
-        case 'FETCH_AZERITE':
-            return state;
+        case 'SET_DISPLAY':
+            return { ...state, display: action.display };
 
         default:
             return state
