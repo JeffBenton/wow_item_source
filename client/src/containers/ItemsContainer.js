@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAzerite } from "../actions/azeriteActions";
+
 import AzeriteCard from '../components/Azerite/AzeriteCard'
 
 import Container from 'react-bootstrap/Container'
@@ -11,19 +14,12 @@ class ItemsContainer extends Component {
     };
 
     componentDidMount() {
-        fetch('/api/azerite')
-            .then(res => res.json())
-            .then(data => {
-                this.setState({
-                    cards: data
-                })
-            })
-
+        this.props.fetchAzerite()
     }
 
     displayCards = () => {
-        if(this.state.cards.length > 0) {
-            return (this.state.cards.map(card => (
+        if(this.props.cards.length > 0) {
+            return (this.props.cards.map(card => (
                 <AzeriteCard key={card.id} info={card} />
             )))
         }
@@ -43,4 +39,17 @@ class ItemsContainer extends Component {
     }
 }
 
-export default ItemsContainer
+const mapStateToProps = state => {
+    return {
+        cards: state.cards,
+        loading: state.loading
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchAzerite: () => dispatch(fetchAzerite())
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsContainer)

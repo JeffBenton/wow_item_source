@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
 
 class AzeriteCard extends Component {
+
+    handleClick = () => {
+        window.location = '/azerite/1'
+    };
+
     render() {
         return (
-            <Card style={{ width: '18rem'}}>
+            <Card onClick={this.handleClick} style={{ width: '18rem', cursor: 'pointer' }}>
                 <Card.Body>
                     <Card.Title>{this.props.info.name}</Card.Title>
 
