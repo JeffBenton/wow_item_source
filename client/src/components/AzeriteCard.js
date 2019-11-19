@@ -10,22 +10,22 @@ class AzeriteCard extends Component {
                     <Card.Title>{this.props.info.name}</Card.Title>
 
                     <Card.Subtitle style={{ paddingBottom: 5 }}>Tier 4</Card.Subtitle>
-                    {this.props.info.tier4.map(trait => (
+                    {this.props.info.tier_four.map(trait => (
                         <Card.Subtitle key={trait} style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
                     ))}
 
                     <Card.Subtitle style={{ paddingBottom: 5, paddingTop: 2 }}>Tier 3</Card.Subtitle>
-                    {this.props.info.tier3.map(trait => (
+                    {this.props.info.tier_three.map(trait => (
                         <Card.Subtitle key={trait} style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
                     ))}
 
                     <Card.Subtitle style={{ paddingBottom: 5, paddingTop: 2 }}>Tier 2</Card.Subtitle>
-                    {this.props.info.tier2.map(trait => (
+                    {this.props.info.tier_two.map(trait => (
                         <Card.Subtitle key={trait} style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
                     ))}
 
                     <Card.Subtitle style={{ paddingBottom: 5, paddingTop: 2 }}>Tier 1</Card.Subtitle>
-                    {this.props.info.tier1.map(trait => (
+                    {this.props.info.tier_one.map(trait => (
                         <Card.Subtitle key={trait} style={{ fontSize: 12, paddingBottom: 4 }}>{trait}</Card.Subtitle>
                     ))}
 

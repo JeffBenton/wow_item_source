@@ -6,31 +6,38 @@ import CardColumns from 'react-bootstrap/CardColumns'
 
 class ItemsContainer extends Component {
 
-    cardProps = {
-        name: "Sea-Brawler's Greathelm",
-        source: "Dungeon",
-        tier4: ["Bastion of Might", "Callous Reprisal", "Pulverizing Blows", "Simmering Rage", "Test of Might", "Crushing Assault"],
-        tier3: [ "Deafening Crash", "Cold Steel, Hot Blood", "Lord of War", "Dagger in the Back"],
-        tier2: ["Earthlink", "Azerite Globules", "Shimmering Haven"],
-        tier1: ["Resounding Protection", "Vampiric Speed"]
+    state = {
+        cards: []
+    };
+
+    componentDidMount() {
+        fetch('/api/azerite')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    cards: data
+                })
+            })
+
+    }
+
+    displayCards = () => {
+        if(this.state.cards.length > 0) {
+            return (this.state.cards.map(card => (
+                <AzeriteCard key={card.id} info={card} />
+            )))
+        }
+        else {
+            return (<div>No Items</div>)
+        }
     };
 
     render() {
         return (
             <Container>
                 <CardColumns>
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
-                    <AzeriteCard info={this.cardProps} />
+                    {/*<AzeriteCard info={this.state.cards} />*/}
+                    {this.displayCards()}
                 </CardColumns>
             </Container>
         )
