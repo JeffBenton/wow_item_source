@@ -1,0 +1,2 @@
+class Trinket < ApplicationRecord
+end

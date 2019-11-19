@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_024415) do
+ActiveRecord::Schema.define(version: 2019_11_19_212331) do
 
   create_table "azerites", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(version: 2019_11_19_024415) do
     t.string "tier_two"
     t.string "tier_one"
     t.string "character_class"
+  end
+
+  create_table "trinkets", force: :cascade do |t|
+    t.string "name"
+    t.string "source"
+    t.string "boss"
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.string "source"
+    t.string "boss"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
