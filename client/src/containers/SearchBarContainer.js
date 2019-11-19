@@ -17,11 +17,6 @@ class SearchBarContainer extends Component {
                     <Col><SearchBar /></Col>
                     <Col><FilterList /></Col>
                 </Row>
-                <Row>
-                    <Col><ItemButton name="Azerite" setDisplay={this.props.setDisplay} /></Col>
-                    <Col><ItemButton name="Weapons" setDisplay={this.props.setDisplay} /></Col>
-                    <Col><ItemButton name="Trinkets" setDisplay={this.props.setDisplay} /></Col>
-                </Row>
             </Container>
         )
     }
