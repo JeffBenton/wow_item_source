@@ -36,7 +36,6 @@ class ItemsContainer extends Component {
         return (
             <Container>
                 <CardColumns>
-                    {/*<AzeriteCard info={this.state.cards} />*/}
                     {this.displayCards()}
                 </CardColumns>
             </Container>
