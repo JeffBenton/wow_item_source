@@ -4,13 +4,10 @@ import Button from 'react-bootstrap/Button'
 
 class ItemButton extends Component {
 
-    handleClick = e => {
-        this.props.setDisplay(e.target.id)
-    };
-
     render() {
+        const name = this.props.name.toLowerCase();
         return (
-            <Button onClick={this.handleClick} id={this.props.name.toLowerCase()}>{this.props.name}</Button>
+            <Button href={`/${name}`} id={name}>{this.props.name}</Button>
         )
     }
 }

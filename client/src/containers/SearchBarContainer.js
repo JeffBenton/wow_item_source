@@ -22,7 +22,6 @@ class SearchBarContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setDisplay: display => dispatch({ type: "SET_DISPLAY", display })
 });
 
 export default connect(null, mapDispatchToProps)(SearchBarContainer)

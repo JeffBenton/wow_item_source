@@ -11,9 +11,9 @@ class NavButtonsContainer extends Component {
         return (
             <Container>
                 <Row>
-                    <Col><ItemButton name="Azerite" setDisplay={this.props.setDisplay} /></Col>
-                    <Col><ItemButton name="Weapons" setDisplay={this.props.setDisplay} /></Col>
-                    <Col><ItemButton name="Trinkets" setDisplay={this.props.setDisplay} /></Col>
+                    <Col><ItemButton name="Azerite" /></Col>
+                    <Col><ItemButton name="Weapons" /></Col>
+                    <Col><ItemButton name="Trinkets" /></Col>
                 </Row>
             </Container>
         )
