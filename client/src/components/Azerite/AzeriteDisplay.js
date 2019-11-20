@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 class AzeriteDisplay extends Component {
     render() {
+        console.log(this.props);
         return (
-            <div>AzeriteDisplay</div>
+            <div>{this.props.info.id}</div>
         )
     }
 }

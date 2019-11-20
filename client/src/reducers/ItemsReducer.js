@@ -17,6 +17,12 @@ export default function ItemsReducer(state = {
                 loading: false
             };
 
+        case 'DISPLAY_PIECE':
+            return {
+                ...state,
+                piece: state.cards.find(card => action.id === card.id)
+            };
+
         default:
             return state
     }

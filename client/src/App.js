@@ -1,26 +1,55 @@
 import React from 'react';
 import NavButtonsContainer from './containers/NavButtonsContainer';
-import AzeriteContainer from './containers/AzeriteContainer';
-import WeaponsContainer from "./containers/WeaponsContainer";
-import TrinketsContainer from "./containers/TrinketsContainer";
 import AzeriteDisplay from "./components/Azerite/AzeriteDisplay";
+import ItemsContainer from "./containers/ItemsContainer";
+import SearchBar from "./components/SearchBar";
+import FilterAzerite from "./components/Azerite/FilterAzerite";
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
-function App() {
+
+const App = props => {
+    console.log(props);
   return (
-      <Router>
-          <div className="App">
-              <Route path="/azerite/:id" component={AzeriteDisplay} />
-              <Route exact path="/azerite" component={AzeriteContainer} />
-              <Route exact path="/weapons" component={WeaponsContainer} />
-              <Route exact path="/trinkets" component={TrinketsContainer} />
-              <Route exact path="/" component={NavButtonsContainer} />
-          </div>
-      </Router>
-  );
-}
+      <Container>
+          <Router>
+              <Switch>
+                  <Route path="/azerite/:id">
+                      <AzeriteDisplay info={props.info} />
+                  </Route>
 
-export default App;
+                  <Route path="/azerite">
+                      <Row>
+                          <Col><SearchBar /></Col>
+                          <Col><FilterAzerite /></Col>
+                      </Row>
+                      <Row>
+                          <NavButtonsContainer />
+                      </Row>
+                      <Row>
+                          <ItemsContainer />
+                      </Row>
+                  </Route>
+
+                  <Route path="/">
+                      <NavButtonsContainer />
+                  </Route>
+              </Switch>
+          </Router>
+      </Container>
+  );
+};
+
+const mapStateToProps = state => {
+    return {
+        info: state.piece
+    }
+};
+
+export default connect(mapStateToProps)(App);

@@ -4,7 +4,6 @@ import { fetchAzerite } from "../actions/azeriteActions";
 
 import AzeriteCard from '../components/Azerite/AzeriteCard'
 
-import Container from 'react-bootstrap/Container'
 import CardColumns from 'react-bootstrap/CardColumns'
 
 class ItemsContainer extends Component {
@@ -20,7 +19,7 @@ class ItemsContainer extends Component {
     displayCards = () => {
         if(this.props.cards.length > 0) {
             return (this.props.cards.map(card => (
-                <AzeriteCard key={card.id} info={card} />
+                <AzeriteCard view={this.props.displayPiece} key={card.id} info={card} />
             )))
         }
         else {
@@ -30,11 +29,9 @@ class ItemsContainer extends Component {
 
     render() {
         return (
-            <Container>
-                <CardColumns>
-                    {this.displayCards()}
-                </CardColumns>
-            </Container>
+            <CardColumns>
+                {this.displayCards()}
+            </CardColumns>
         )
     }
 }
@@ -48,7 +45,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchAzerite: () => dispatch(fetchAzerite())
+        fetchAzerite: () => dispatch(fetchAzerite()),
+        displayPiece: id => dispatch({ type: 'DISPLAY_PIECE', id })
     }
 };
 

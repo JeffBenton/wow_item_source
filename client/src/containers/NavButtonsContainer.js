@@ -15,6 +15,7 @@ class NavButtonsContainer extends Component {
                     <Col><ItemButton name="Weapons" /></Col>
                     <Col><ItemButton name="Trinkets" /></Col>
                 </Row>
+
             </Container>
         )
     }
