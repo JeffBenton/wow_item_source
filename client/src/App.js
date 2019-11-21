@@ -15,7 +15,6 @@ import Col from "react-bootstrap/Col"
 
 
 const App = props => {
-    console.log(props);
   return (
       <Container>
           <Router>

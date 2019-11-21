@@ -6,7 +6,7 @@ class AzeriteCard extends Component {
 
     handleClick = () => {
         this.props.view(this.props.info.id);
-        window.location = `azerite/${this.props.info.id}`
+        // window.location = `azerite/${this.props.info.id}`
     };
 
     render() {
