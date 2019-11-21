@@ -5,6 +5,7 @@ const AzeriteDisplay = props => {
     return (
         <div>
             <h1>{info.name}</h1>
+            <h3>{info.slot}</h3>
             <h3>Source: {info.source}</h3>
             <h4>Tier 4</h4>
             {info.tier_four.map(trait => (

@@ -11,9 +11,14 @@ class FilterAzerite extends Component {
     state = {
         class: 'Select Class',
         sources: {
-            raid: false,
-            dungeon: false,
-            pvp: false
+            raid: true,
+            dungeon: true,
+            pvp: true
+        },
+        slots: {
+            helm: true,
+            shoulder: true,
+            chest: true
         }
     };
 
@@ -33,7 +38,18 @@ class FilterAzerite extends Component {
         })
     };
 
+    handleSlotSelection = e => {
+        const slot = e.target.id.toLowerCase();
+        const slots = this.state.slot;
+        slots[slot] = !this.state.sources[slot];
+
+        this.setState({
+            slots
+        })
+    };
+
     render() {
+        console.log(this.state);
         return (
             <Container>
                 <Row>
@@ -49,11 +65,26 @@ class FilterAzerite extends Component {
                         {['Raid', 'Dungeon', 'PvP'].map(source => (
                             <div key={source}>
                                 <Form.Check
-                                    onClick={this.handleSourceSelection}
+                                    onChange={this.handleSourceSelection}
                                     custom
+                                    checked={this.state.sources[source.toLowerCase()]}
                                     label={source}
                                     type="checkbox"
                                     id={source}
+                                />
+                            </div>
+                        ))}
+                    </Form>
+                    <Form>
+                        {['Helm', 'Shoulder', 'Chest'].map(slot => (
+                            <div key={slot}>
+                                <Form.Check
+                                    onChange={this.handleSlotSelection}
+                                    custom
+                                    checked={this.state.slots[slot.toLowerCase()]}
+                                    label={slot}
+                                    type="checkbox"
+                                    id={slot}
                                 />
                             </div>
                         ))}
