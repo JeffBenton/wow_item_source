@@ -4,6 +4,7 @@ export default function ItemsReducer(state = {
         weapons: [],
         trinkets: []
     },
+    char_class: "Select a Class",
     sources: {
         Raid: true,
         Dungeon: true,
