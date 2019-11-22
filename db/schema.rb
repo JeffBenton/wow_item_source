@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_054956) do
+ActiveRecord::Schema.define(version: 2019_11_22_203054) do
 
   create_table "azerites", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_054956) do
     t.string "tier_one"
     t.string "character_class"
     t.string "slot"
+    t.integer "views", default: 0
   end
 
   create_table "trinkets", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_054956) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "zone"
     t.string "trinket_type"
+    t.integer "views", default: 0
   end
 
   create_table "weapons", force: :cascade do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_054956) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "zone"
     t.string "role"
+    t.integer "views", default: 0
   end
 
 end
