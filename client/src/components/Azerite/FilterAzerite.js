@@ -12,41 +12,21 @@ import Row from 'react-bootstrap/Row'
 class FilterAzerite extends Component {
 
     state = {
-        sources: {
-            raid: true,
-            dungeon: true,
-            pvp: true
-        },
-        slots: {
-            helm: true,
-            shoulder: true,
-            chest: true
-        }
+        sources: ["raid", "dungeon", "pvp"],
+        slots: ["helm", "chest", "shoulder"]
     };
 
     handleClassSelection = e => {
         this.props.setClass(e.target.title);
-        this.props.fetchAzerite(e.target.title)
+        this.props.fetchAzerite({ class: e.target.title, sources: this.state.sources, slots: this.state.slots })
     };
 
     handleSourceSelection = e => {
-        const source = e.target.id.toLowerCase();
-        const sources = this.state.sources;
-        sources[source] = !this.state.sources[source];
 
-        this.setState({
-            sources
-        })
     };
 
     handleSlotSelection = e => {
-        const slot = e.target.id.toLowerCase();
-        const slots = this.state.slots;
-        slots[slot] = !this.state.slots[slot];
 
-        this.setState({
-            slots
-        })
     };
 
     render() {
@@ -67,7 +47,6 @@ class FilterAzerite extends Component {
                                 <Form.Check
                                     onChange={this.handleSourceSelection}
                                     custom
-                                    checked={this.state.sources[source.toLowerCase()]}
                                     label={source}
                                     type="checkbox"
                                     id={source}
@@ -81,7 +60,6 @@ class FilterAzerite extends Component {
                                 <Form.Check
                                     onChange={this.handleSlotSelection}
                                     custom
-                                    checked={this.state.slots[slot.toLowerCase()]}
                                     label={slot}
                                     type="checkbox"
                                     id={slot}
@@ -101,7 +79,17 @@ FilterAzerite.defaultProps = {
 
 const mapStateToProps = state => {
     return {
-        char_class: state.char_class
+        char_class: state.char_class,
+        sources: {
+            raid: true,
+            dungeon: true,
+            pvp: true
+        },
+        slots: {
+            helm: true,
+            shoulder: true,
+            chest: true
+        }
     }
 };
 

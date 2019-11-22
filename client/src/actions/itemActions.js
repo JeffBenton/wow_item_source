@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export const fetchCards = path => {
     const upperPath = path.toUpperCase();
     return (dispatch) => {
@@ -12,19 +14,12 @@ export const fetchCards = path => {
 export const fetchAzerite = params => {
     return (dispatch) => {
         dispatch({ type: "LOADING_AZERITE"});
-        fetch(`/api/search?class=${params}`)
+        console.log(params);
+        let url = '/api/search?' + $.param({ class: params.class, sources: params.sources, slots: params.slots });
+        console.log(url)
+        fetch(url)
             .then(res => res.json())
             .then(responseJSON => { dispatch({ type: 'ADD_AZERITE', cards: responseJSON})
-            })
-    }
-};
-
-export const searchAzerite = term => {
-    return dispatch => {
-        dispatch({ type: "LOADING_AZERITE"});
-        fetch(`/api/specific?term=${term}`)
-            .then(res => res.json())
-            .then(responseJSON => { dispatch ({ type: "ADD_AZERITE", card: responseJSON})
             })
     }
 };
