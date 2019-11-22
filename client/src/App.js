@@ -2,7 +2,6 @@ import React from 'react';
 import NavButtonsContainer from './containers/NavButtonsContainer';
 import AzeriteDisplay from "./components/Azerite/AzeriteDisplay";
 import ItemsContainer from "./containers/ItemsContainer";
-import SearchBar from "./components/SearchBar";
 import FilterAzerite from "./components/Azerite/FilterAzerite";
 import FilterTrinkets from "./components/Trinkets/FilterTrinkets";
 
@@ -34,7 +33,6 @@ const App = props => {
 
                   <Route path="/azerite">
                       <Row>
-                          <Col><SearchBar /></Col>
                           <Col><FilterAzerite path="azerite" /></Col>
                       </Row>
                       <Row>
@@ -47,7 +45,6 @@ const App = props => {
 
                   <Route path="/weapons">
                       <Row>
-                          <Col><SearchBar /></Col>
                           <Col><FilterAzerite /></Col>
                       </Row>
                       <Row>
@@ -60,7 +57,6 @@ const App = props => {
 
                   <Route path="/trinkets">
                       <Row>
-                          <Col><SearchBar /></Col>
                           <Col><FilterTrinkets path="trinkets" /></Col>
                       </Row>
                       <Row>

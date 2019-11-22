@@ -29,6 +29,12 @@ export default function ItemsReducer(state = {
                 piece: state.cards.azerite.find(card => action.id === card.id)
             };
 
+        case 'SET_CLASS':
+            return {
+                ...state,
+                char_class: action.char_class
+            };
+
         case 'LOADING_TRINKETS':
             return {
                 ...state,

@@ -12,7 +12,6 @@ import Row from 'react-bootstrap/Row'
 class FilterAzerite extends Component {
 
     state = {
-        class: 'Select Class',
         sources: {
             raid: true,
             dungeon: true,
@@ -26,9 +25,7 @@ class FilterAzerite extends Component {
     };
 
     handleClassSelection = e => {
-        this.setState({
-            class: e.target.title
-        });
+        this.props.setClass(e.target.title);
         this.props.fetchAzerite(e.target.title)
     };
 
@@ -56,7 +53,7 @@ class FilterAzerite extends Component {
         return (
             <Container>
                 <Row>
-                    <DropdownButton id="dropdown-class-button" title={this.state.class}>
+                    <DropdownButton id="dropdown-class-button" title={this.props.char_class}>
                         {['Death Knight', 'Demon Hunter', 'Druid', 'Hunter', 'Mage', 'Monk', 'Paladin', 'Priest', 'Rogue', 'Shaman', 'Warlock', 'Warrior'].map(cls => (
                             <div key={cls}>
                                 <Dropdown.Item onClick={this.handleClassSelection} title={cls}>{cls}</Dropdown.Item>
@@ -98,11 +95,22 @@ class FilterAzerite extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+FilterAzerite.defaultProps = {
+    char_class: "Select a Class"
+};
+
+const mapStateToProps = state => {
     return {
-        fetchCards: path => dispatch(fetchCards(path)),
-        fetchAzerite: params => dispatch(fetchAzerite(params))
+        char_class: state.char_class
     }
 };
 
-export default connect(null, mapDispatchToProps)(FilterAzerite)
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchCards: path => dispatch(fetchCards(path)),
+        fetchAzerite: params => dispatch(fetchAzerite(params)),
+        setClass: char_class => dispatch({ type: "SET_CLASS", char_class })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterAzerite)
