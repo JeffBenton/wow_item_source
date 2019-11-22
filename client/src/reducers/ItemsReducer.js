@@ -4,6 +4,16 @@ export default function ItemsReducer(state = {
         weapons: [],
         trinkets: []
     },
+    sources: {
+        Raid: true,
+        Dungeon: true,
+        PvP: true
+    },
+    slots: {
+        Head: true,
+        Shoulder: true,
+        Chest: true
+    },
     loading: false
 }, action) {
     switch (action.type) {
@@ -33,6 +43,20 @@ export default function ItemsReducer(state = {
             return {
                 ...state,
                 char_class: action.char_class
+            };
+
+        case 'SET_SOURCE':
+            state.sources[action.source] = !action.value;
+            return {
+                ...state,
+                sources: { ...state.sources }
+            };
+
+        case 'SET_SLOT':
+            state.slots[action.slot] = !action.value;
+            return {
+                ...state,
+                slots: { ...state.slots }
             };
 
         case 'LOADING_TRINKETS':

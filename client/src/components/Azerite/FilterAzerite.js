@@ -12,8 +12,8 @@ import Row from 'react-bootstrap/Row'
 class FilterAzerite extends Component {
 
     state = {
-        sources: ["raid", "dungeon", "pvp"],
-        slots: ["helm", "chest", "shoulder"]
+        sources: ["Raid", "Dungeon", "PvP"],
+        slots: ["Head", "Chest", "Shoulder"]
     };
 
     handleClassSelection = e => {
@@ -22,11 +22,13 @@ class FilterAzerite extends Component {
     };
 
     handleSourceSelection = e => {
-
+        const value = this.props.sources[e.target.id];
+        this.props.setSource(e.target.id, value)
     };
 
     handleSlotSelection = e => {
-
+        const value = this.props.slots[e.target.id];
+        this.props.setSlot(e.target.id, value);
     };
 
     render() {
@@ -47,6 +49,7 @@ class FilterAzerite extends Component {
                                 <Form.Check
                                     onChange={this.handleSourceSelection}
                                     custom
+                                    checked={this.props.sources[source]}
                                     label={source}
                                     type="checkbox"
                                     id={source}
@@ -55,11 +58,12 @@ class FilterAzerite extends Component {
                         ))}
                     </Form>
                     <Form>
-                        {['Helm', 'Shoulder', 'Chest'].map(slot => (
+                        {['Head', 'Shoulder', 'Chest'].map(slot => (
                             <div key={slot}>
                                 <Form.Check
                                     onChange={this.handleSlotSelection}
                                     custom
+                                    checked={this.props.slots[slot]}
                                     label={slot}
                                     type="checkbox"
                                     id={slot}
@@ -74,22 +78,14 @@ class FilterAzerite extends Component {
 }
 
 FilterAzerite.defaultProps = {
-    char_class: "Select a Class"
+    char_class: "Select a Class",
 };
 
 const mapStateToProps = state => {
     return {
         char_class: state.char_class,
-        sources: {
-            raid: true,
-            dungeon: true,
-            pvp: true
-        },
-        slots: {
-            helm: true,
-            shoulder: true,
-            chest: true
-        }
+        sources: state.sources,
+        slots: state.slots
     }
 };
 
@@ -97,7 +93,9 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchCards: path => dispatch(fetchCards(path)),
         fetchAzerite: params => dispatch(fetchAzerite(params)),
-        setClass: char_class => dispatch({ type: "SET_CLASS", char_class })
+        setClass: char_class => dispatch({ type: "SET_CLASS", char_class }),
+        setSource: (source, value) => dispatch({ type: "SET_SOURCE", source, value }),
+        setSlot: (slot, value) => dispatch({ type: "SET_SLOT", slot, value})
     }
 };
 
