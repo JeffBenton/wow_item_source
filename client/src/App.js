@@ -23,6 +23,14 @@ const App = props => {
                       <AzeriteDisplay info={props.info} />
                   </Route>
 
+                  <Route path="/weapons/:id">
+                      <AzeriteDisplay info={props.info} />
+                  </Route>
+
+                  <Route path="/trinkets/:id">
+                      <AzeriteDisplay info={props.info} />
+                  </Route>
+
                   <Route path="/azerite">
                       <Row>
                           <Col><SearchBar /></Col>
@@ -33,6 +41,32 @@ const App = props => {
                       </Row>
                       <Row>
                           <ItemsContainer path="azerite" />
+                      </Row>
+                  </Route>
+
+                  <Route path="/weapons">
+                      <Row>
+                          <Col><SearchBar /></Col>
+                          <Col><FilterAzerite /></Col>
+                      </Row>
+                      <Row>
+                          <NavButtonsContainer />
+                      </Row>
+                      <Row>
+                          <ItemsContainer path="weapon" />
+                      </Row>
+                  </Route>
+
+                  <Route path="/trinkets">
+                      <Row>
+                          <Col><SearchBar /></Col>
+                          <Col><FilterAzerite /></Col>
+                      </Row>
+                      <Row>
+                          <NavButtonsContainer />
+                      </Row>
+                      <Row>
+                          <ItemsContainer path="trinket" />
                       </Row>
                   </Route>
 
