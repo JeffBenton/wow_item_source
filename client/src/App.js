@@ -4,6 +4,7 @@ import AzeriteDisplay from "./components/Azerite/AzeriteDisplay";
 import ItemsContainer from "./containers/ItemsContainer";
 import SearchBar from "./components/SearchBar";
 import FilterAzerite from "./components/Azerite/FilterAzerite";
+import FilterTrinkets from "./components/Trinkets/FilterTrinkets";
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -34,7 +35,7 @@ const App = props => {
                   <Route path="/azerite">
                       <Row>
                           <Col><SearchBar /></Col>
-                          <Col><FilterAzerite /></Col>
+                          <Col><FilterAzerite path="azerite" /></Col>
                       </Row>
                       <Row>
                           <NavButtonsContainer />
@@ -60,7 +61,7 @@ const App = props => {
                   <Route path="/trinkets">
                       <Row>
                           <Col><SearchBar /></Col>
-                          <Col><FilterAzerite /></Col>
+                          <Col><FilterTrinkets path="trinkets" /></Col>
                       </Row>
                       <Row>
                           <NavButtonsContainer />

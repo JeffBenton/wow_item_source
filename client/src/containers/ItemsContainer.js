@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCards } from "../actions/itemActions";
 import { NavLink } from 'react-router-dom';
 
 import AzeriteCard from '../components/Azerite/AzeriteCard'
@@ -17,10 +16,6 @@ class ItemsContainer extends Component {
             trinkets: []
         }
     };
-
-    componentDidMount() {
-        this.props.fetchCards(this.props.path)
-    }
 
     displayCards = () => {
         switch(this.props.path) {
@@ -57,7 +52,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCards: path => dispatch(fetchCards(path)),
         displayPiece: (id, type) => dispatch({ type, id })
     }
 };

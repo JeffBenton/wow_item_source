@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchCards } from "../../actions/itemActions";
 
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+
 
 class FilterAzerite extends Component {
 
@@ -21,6 +24,11 @@ class FilterAzerite extends Component {
             chest: true
         }
     };
+
+
+    componentDidMount() {
+        this.props.fetchCards(this.props.path)
+    }
 
     handleClassSelection = e => {
         this.setState({
@@ -94,4 +102,10 @@ class FilterAzerite extends Component {
     }
 }
 
-export default FilterAzerite
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchCards: path => dispatch(fetchCards(path))
+    }
+};
+
+export default connect(null, mapDispatchToProps)(FilterAzerite)
