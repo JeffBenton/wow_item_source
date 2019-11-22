@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   scope '/api' do
     get :azerite, to: 'azerites#index'
     get :search, to: 'azerites#search'
-    get :specific, to: 'azerites#specific'
 
     get :trinkets, to: 'trinkets#index'
   end
