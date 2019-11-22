@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import AzeriteCard from '../components/Azerite/AzeriteCard'
 import TrinketCard from "../components/Trinkets/TrinketCard";
+import { displayPiece } from "../actions/itemActions"
 
 import CardColumns from 'react-bootstrap/CardColumns'
 
@@ -44,7 +45,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        displayPiece: (id, type) => dispatch({ type, id })
+        // displayPiece: (id, type) => dispatch({ type, id })
+        displayPiece: (id, category, type) => dispatch(displayPiece(id, category, type))
     }
 };
 

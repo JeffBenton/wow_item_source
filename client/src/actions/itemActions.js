@@ -21,3 +21,21 @@ export const fetchAzerite = params => {
             })
     }
 };
+
+export const displayPiece = (id, category, type) => {
+    return dispatch => {
+        dispatch({ type: "LOADING_AZERITE"});
+        const data = { id };
+        fetch(`/api/${category}/update`, {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(responseJSON => { dispatch({ type , piece: responseJSON})
+            })
+    }
+};
