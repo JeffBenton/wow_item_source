@@ -49,7 +49,6 @@ class FilterAzerite extends Component {
     };
 
     render() {
-        console.log(this.state);
         return (
             <Container>
                 <Row>

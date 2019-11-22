@@ -20,7 +20,7 @@ class ItemsContainer extends Component {
     displayCards = () => {
         if(this.props.cards.length > 0) {
             return (this.props.cards.map(card => (
-                <NavLink to="/azerite/1" key={card.id}><AzeriteCard view={this.props.displayPiece} info={card} /></NavLink>
+                <NavLink style={{ color: "black" }} to="/azerite/1" key={card.id}><AzeriteCard view={this.props.displayPiece} info={card} /></NavLink>
             )))
         }
         else {

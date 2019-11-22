@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Azerite.destroy_all
+Weapon.destroy_all
+Trinket.destroy_all
 
 Azerite.create(
   name: "Sea-Brawler's Greathelm",
@@ -39,4 +41,55 @@ Azerite.create(
     tier_two: ["Overwhelming Power", "Gutripper", "Azerite Veins"],
     tier_one: ["Resounding Protection", "Self Reliance"],
     character_class: "Warrior"
+)
+
+Weapon.create(
+    name: "Monstrosity's Shipbreaker",
+    source: "Raid",
+    zone: "The Eternal Palace",
+    boss: "Radiance of Azshara",
+    role: "Str 2h",
+    weapon_type: "Two-Hand Mace"
+)
+
+Weapon.create(
+    name: "Geti'ikku, Cut of Death",
+    source: "Dungeon",
+    zone: "Kings' Rest",
+    boss: "Dazar, The First King",
+    role: "Str 2h",
+    weapon_type: "Two-Hand Sword"
+)
+
+Weapon.create(
+    name: "Diver's Folly",
+    source: "Raid",
+    zone: "The Eternal Palace",
+    boss: "Blackwater Behemoth",
+    role: "Agi 1h",
+    weapon_type: "One-Hand Axe"
+)
+
+Trinket.create(
+    name: "Ashvane's Razor Coral",
+    source: "Raid",
+    zone: "The Eternal Palace",
+    boss: "Lady Ashvane",
+    trinket_type: ["str-dps", "agi-dps"]
+)
+
+Trinket.create(
+    name: "Leviathan's Lure",
+    source: "Raid",
+    zone: "The Eternal Palace",
+    boss: "Blackwater Behemoth",
+    trinket_type: ["int-dps"]
+)
+
+Trinket.create(
+    name: "Azshara's Font of Power",
+    source: "Raid",
+    zone: "The Eternal Palace",
+    boss: "Queen Azshara",
+    trinket_type: ["str-dps", "agi-dps", "int-dps", "tank", "heal"]
 )
