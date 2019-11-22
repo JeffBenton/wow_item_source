@@ -4,6 +4,7 @@ import { fetchCards } from "../actions/itemActions";
 import { NavLink } from 'react-router-dom';
 
 import AzeriteCard from '../components/Azerite/AzeriteCard'
+import TrinketCard from "../components/Trinkets/TrinketCard";
 
 import CardColumns from 'react-bootstrap/CardColumns'
 
@@ -26,6 +27,11 @@ class ItemsContainer extends Component {
             case "azerite":
                 return (this.props.cards.azerite.map(card => (
                     <NavLink style={{ color: "black" }} to={`/azerite/${card.id}`} key={card.id}><AzeriteCard view={this.props.displayPiece} info={card} /></NavLink>
+                )));
+
+            case "trinkets":
+                return (this.props.cards.trinkets.map(card => (
+                    <NavLink style={{ color: "black" }} to={`/trinkets/${card.id}`} key={card.id}><TrinketCard view={this.props.displayPiece} info={card} /></NavLink>
                 )));
 
             default:

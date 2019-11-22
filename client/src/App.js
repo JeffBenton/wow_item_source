@@ -53,7 +53,7 @@ const App = props => {
                           <NavButtonsContainer />
                       </Row>
                       <Row>
-                          <ItemsContainer path="weapon" />
+                          <ItemsContainer path="weapons" />
                       </Row>
                   </Route>
 
@@ -66,7 +66,7 @@ const App = props => {
                           <NavButtonsContainer />
                       </Row>
                       <Row>
-                          <ItemsContainer path="trinket" />
+                          <ItemsContainer path="trinkets" />
                       </Row>
                   </Route>
 

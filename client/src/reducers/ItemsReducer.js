@@ -17,7 +17,7 @@ export default function ItemsReducer(state = {
             return {
                 ...state,
                 cards: {
-                    ...state,
+                    ...state.cards,
                     azerite: action.cards
                 },
                 loading: false
@@ -27,6 +27,28 @@ export default function ItemsReducer(state = {
             return {
                 ...state,
                 piece: state.cards.azerite.find(card => action.id === card.id)
+            };
+
+        case 'LOADING_TRINKETS':
+            return {
+                ...state,
+                loading: true
+            };
+
+        case 'ADD_TRINKETS':
+            return {
+                ...state,
+                cards: {
+                    ...state.cards,
+                    trinkets: action.cards
+                },
+                loading: false
+            };
+
+        case 'DISPLAY_TRINKET':
+            return {
+                ...state,
+                piece: state.cards.trinkets.find(card => action.id === card.id)
             };
 
         default:

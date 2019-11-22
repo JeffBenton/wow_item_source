@@ -9,7 +9,7 @@ const AzeriteCard = props => {
     };
 
     return (
-        <Card onClick={handleClick} style={{ width: '18rem', cursor: 'pointer' }}>
+        <Card onClick={handleClick} style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>{props.info.name}</Card.Title>
                 <Card.Subtitle>{props.info.slot}</Card.Subtitle>
