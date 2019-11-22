@@ -9,14 +9,6 @@ import CardColumns from 'react-bootstrap/CardColumns'
 
 class ItemsContainer extends Component {
 
-    state = {
-        cards: {
-            azerite: [],
-            weapons: [],
-            trinkets: []
-        }
-    };
-
     displayCards = () => {
         switch(this.props.path) {
             case "azerite":

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCards } from "../../actions/itemActions";
+import { fetchCards, fetchAzerite } from "../../actions/itemActions";
 
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -25,15 +25,11 @@ class FilterAzerite extends Component {
         }
     };
 
-
-    componentDidMount() {
-        this.props.fetchCards(this.props.path)
-    }
-
     handleClassSelection = e => {
         this.setState({
             class: e.target.title
-        })
+        });
+        this.props.fetchAzerite(e.target.title)
     };
 
     handleSourceSelection = e => {
@@ -48,8 +44,8 @@ class FilterAzerite extends Component {
 
     handleSlotSelection = e => {
         const slot = e.target.id.toLowerCase();
-        const slots = this.state.slot;
-        slots[slot] = !this.state.sources[slot];
+        const slots = this.state.slots;
+        slots[slot] = !this.state.slots[slot];
 
         this.setState({
             slots
@@ -104,7 +100,8 @@ class FilterAzerite extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCards: path => dispatch(fetchCards(path))
+        fetchCards: path => dispatch(fetchCards(path)),
+        fetchAzerite: params => dispatch(fetchAzerite(params))
     }
 };
 
