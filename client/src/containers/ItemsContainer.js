@@ -25,7 +25,7 @@ class ItemsContainer extends Component {
         switch(this.props.path) {
             case "azerite":
                 return (this.props.cards.azerite.map(card => (
-                    <NavLink style={{ color: "black" }} to={`/azerite/${card.id}`} key={card.id}><AzeriteCard view={this.props.displayAzerite} info={card} /></NavLink>
+                    <NavLink style={{ color: "black" }} to={`/azerite/${card.id}`} key={card.id}><AzeriteCard view={this.props.displayPiece} info={card} /></NavLink>
                 )));
 
             default:
@@ -52,7 +52,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchCards: path => dispatch(fetchCards(path)),
-        displayAzerite: id => dispatch({ type: 'DISPLAY_AZERITE', id })
+        displayPiece: (id, type) => dispatch({ type, id })
     }
 };
 

@@ -5,8 +5,7 @@ import Card from 'react-bootstrap/Card'
 const AzeriteCard = props => {
 
     const handleClick = () => {
-        props.view(props.info.id);
-        // window.location = `azerite/${this.props.info.id}`
+        props.view(props.info.id, 'DISPLAY_AZERITE');
     };
 
     return (
