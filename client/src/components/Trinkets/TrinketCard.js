@@ -13,6 +13,7 @@ const TrinketCard = props => {
             <Card.Body>
                 <Card.Title>{props.info.name}</Card.Title>
 
+                <Card.Subtitle style={{ paddingBottom: 5 }}>{props.info.trinket_type}</Card.Subtitle>
             </Card.Body>
         </Card>
     )

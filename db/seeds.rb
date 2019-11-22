@@ -43,6 +43,37 @@ Azerite.create(
     character_class: "Warrior"
 )
 
+Azerite.create(
+    name: "Circlet of the Enveloping Leviathan",
+    slot: "Head",
+    source: "Dungeon",
+    tier_four: ["Furious Gaze", "Seething Power", "Infernal Armor", "Hour of Reaping"],
+    tier_three: ["Meticulous Scheming", "Chaotic Transformation", "Essence Sever"],
+    tier_two: ["Earthlink", "Overwhelming Power", "Azerite Veins"],
+    tier_one: ["Resounding Protection", "Impassive Visage"],
+    character_class: "Demon Hunter"
+)
+Azerite.create(
+    name: "Gorak Tul's Mantle",
+    slot: "Shoulder",
+    source: "Dungeon",
+    tier_four: ["Revolving Blades", "Eyes of Rage", "Revel in Pain", "Essence Sever"],
+    tier_three: ["Blightborne Infusion", "Chaotic Transformation", "Hour of Reaping"],
+    tier_two: ["Unstable Flames", "Elemental Whirl", "Shimmering Haven"],
+    tier_one: ["Soulmonger", "Self Reliance"],
+    character_class: "Demon Hunter"
+)
+Azerite.create(
+    name: "Blackwater Shimmerscale Vest",
+    slot: "Chest",
+    source: "Raid",
+    tier_four: ["Furious Gaze", "Seething Power", "Infernal Armor", "Hour of Reaping"],
+    tier_three: ["Loyal to the End", "Eyes of Rage", "Essence Sever"],
+    tier_two: ["Overwhelming Power", "Earthlink", "Azerite Veins"],
+    tier_one: ["Thrive in Chaos", "Bulwark of the Masses"],
+    character_class: "Demon Hunter"
+)
+
 Weapon.create(
     name: "Monstrosity's Shipbreaker",
     source: "Raid",
