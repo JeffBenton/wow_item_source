@@ -1,26 +1,32 @@
 export default function ItemsReducer(state = {
-    cards: [],
+    cards: {
+        azerite: [],
+        weapons: [],
+        trinkets: []
+    },
     loading: false
 }, action) {
     switch (action.type) {
         case 'LOADING_AZERITE':
             return {
                 ...state,
-                cards: [...state.cards],
                 loading: true
             };
 
         case 'ADD_AZERITE':
             return {
                 ...state,
-                cards: action.cards,
+                cards: {
+                    ...state,
+                    azerite: action.cards
+                },
                 loading: false
             };
 
-        case 'DISPLAY_PIECE':
+        case 'DISPLAY_AZERITE':
             return {
                 ...state,
-                piece: state.cards.find(card => action.id === card.id)
+                piece: state.cards.azerite.find(card => action.id === card.id)
             };
 
         default:

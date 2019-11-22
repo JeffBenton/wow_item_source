@@ -32,7 +32,7 @@ const App = props => {
                           <NavButtonsContainer />
                       </Row>
                       <Row>
-                          <ItemsContainer />
+                          <ItemsContainer path="azerite" />
                       </Row>
                   </Route>
 

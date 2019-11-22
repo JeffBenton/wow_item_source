@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAzerite } from "../actions/azeriteActions";
+import { fetchCards } from "../actions/itemActions";
 import { NavLink } from 'react-router-dom';
 
 import AzeriteCard from '../components/Azerite/AzeriteCard'
@@ -10,21 +10,26 @@ import CardColumns from 'react-bootstrap/CardColumns'
 class ItemsContainer extends Component {
 
     state = {
-        cards: []
+        cards: {
+            azerite: [],
+            weapons: [],
+            trinkets: []
+        }
     };
 
     componentDidMount() {
-        this.props.fetchAzerite()
+        this.props.fetchCards(this.props.path)
     }
 
     displayCards = () => {
-        if(this.props.cards.length > 0) {
-            return (this.props.cards.map(card => (
-                <NavLink style={{ color: "black" }} to="/azerite/1" key={card.id}><AzeriteCard view={this.props.displayPiece} info={card} /></NavLink>
-            )))
-        }
-        else {
-            return (<div>No Items</div>)
+        switch(this.props.path) {
+            case "azerite":
+                return (this.props.cards.azerite.map(card => (
+                    <NavLink style={{ color: "black" }} to={`/azerite/${card.id}`} key={card.id}><AzeriteCard view={this.props.displayAzerite} info={card} /></NavLink>
+                )));
+
+            default:
+                return (<div>No Items</div>)
         }
     };
 
@@ -46,8 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchAzerite: () => dispatch(fetchAzerite()),
-        displayPiece: id => dispatch({ type: 'DISPLAY_PIECE', id })
+        fetchCards: path => dispatch(fetchCards(path)),
+        displayAzerite: id => dispatch({ type: 'DISPLAY_AZERITE', id })
     }
 };
 
