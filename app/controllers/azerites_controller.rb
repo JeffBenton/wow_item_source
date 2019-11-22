@@ -6,4 +6,8 @@ class AzeritesController < ApplicationController
   def search
     render status: 200, json: Azerite.where("character_class = ?", params["class"])
   end
+
+  def specific
+    render status: 200, json: Azerite.where("name LIKE ?", "%#{params[:term]}")
+  end
 end

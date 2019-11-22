@@ -18,3 +18,13 @@ export const fetchAzerite = params => {
             })
     }
 };
+
+export const searchAzerite = term => {
+    return dispatch => {
+        dispatch({ type: "LOADING_AZERITE"});
+        fetch(`/api/specific?term=${term}`)
+            .then(res => res.json())
+            .then(responseJSON => { dispatch ({ type: "ADD_AZERITE", card: responseJSON})
+            })
+    }
+};
