@@ -4,11 +4,15 @@ class AzeritesController < ApplicationController
   end
 
   def search
-    render status: 200, json: Azerite.where(character_class: params[:class], slot: params[:slots], source: params[:sources])
+    sources = []
+    slots = []
+    params[:sources].each_pair { |source, val| sources << source.to_s if val == "true" }
+    params[:slots].each_pair { |slot, val| slots << slot.to_s if val == "true" }
+
+    render status: 200, json: Azerite.where(character_class: params[:class], slot: slots, source: sources)
   end
 
   def update
-    puts params[:id]
     record = Azerite.find_by(id: params[:id])
     views = record.views
     record.update(views: views + 1)

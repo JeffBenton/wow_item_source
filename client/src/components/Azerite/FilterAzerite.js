@@ -13,31 +13,19 @@ class FilterAzerite extends Component {
 
     handleClassSelection = e => {
         this.props.setClass(e.target.title);
-        const params = this.buildArray();
-        this.props.fetchAzerite({ class: e.target.title, sources: params.sources, slots: params.slots })
+        this.props.fetchAzerite({ class: e.target.title, sources: this.props.sources, slots: this.props.slots })
     };
 
     handleSourceSelection = e => {
         const value = this.props.sources[e.target.id];
         this.props.setSource(e.target.id, value);
-        const params = this.buildArray();
-        this.props.fetchAzerite({ class: this.props.char_class, sources: params.sources, slots: params.slots })
+        this.props.fetchAzerite({ class: this.props.char_class, sources: this.props.sources, slots: this.props.slots })
     };
 
     handleSlotSelection = e => {
         const value = this.props.slots[e.target.id];
         this.props.setSlot(e.target.id, value);
-        const params = this.buildArray();
-        this.props.fetchAzerite({ class: this.props.char_class, sources: params.sources, slots: params.slots })
-    };
-
-    buildArray = () => {
-        const sources = Object.keys(this.props.sources).filter(source => this.props.sources[source]);
-        const slots = Object.keys(this.props.slots).filter(slot => this.props.slots[slot]);
-        return {
-            sources,
-            slots
-        }
+        this.props.fetchAzerite({ class: this.props.char_class, sources: this.props.sources, slots: this.props.slots })
     };
 
     render() {
