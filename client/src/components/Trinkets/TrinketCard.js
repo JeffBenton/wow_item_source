@@ -5,9 +5,9 @@ import Card from 'react-bootstrap/Card'
 const TrinketCard = props => {
 
     const handleClick = () => {
-        props.view(props.info.id, 'trinket', 'DISPLAY_TRINKET');
+        props.view(props.info.id, 'trinkets', 'DISPLAY_TRINKET');
     };
-    console.log(props)
+
     return (
         <Card onClick={handleClick} style={{ width: '18rem' }}>
             <Card.Body>

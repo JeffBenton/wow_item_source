@@ -1,6 +1,7 @@
 import React from 'react';
 import NavButtonsContainer from './containers/NavButtonsContainer';
 import AzeriteDisplay from "./components/Azerite/AzeriteDisplay";
+import TrinketDisplay from "./components/Trinkets/TrinketDisplay";
 import ItemsContainer from "./containers/ItemsContainer";
 import FilterAzerite from "./components/Azerite/FilterAzerite";
 import FilterTrinkets from "./components/Trinkets/FilterTrinkets";
@@ -28,7 +29,7 @@ const App = props => {
                   </Route>
 
                   <Route path="/trinkets/:id">
-                      <AzeriteDisplay info={props.info} />
+                      <TrinketDisplay info={props.info} />
                   </Route>
 
                   <Route path="/azerite">

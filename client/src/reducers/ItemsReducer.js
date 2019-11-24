@@ -80,7 +80,8 @@ export default function ItemsReducer(state = {
         case 'DISPLAY_TRINKET':
             return {
                 ...state,
-                piece: state.cards.trinkets.find(card => action.id === card.id)
+                piece: action.piece,
+                loading: false
             };
 
         default:
