@@ -31,6 +31,9 @@ const AzeriteDisplay = props => {
                 </div>
             )
         }
+        else {
+            return <div>Loading...</div>
+        }
     };
 
     return (

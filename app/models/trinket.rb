@@ -1,3 +1,3 @@
 class Trinket < ApplicationRecord
-  serialize :type, Array
+  serialize :trinket_type, Array
 end
