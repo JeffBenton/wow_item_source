@@ -7,11 +7,12 @@ import thunk from 'redux-thunk';
 
 import AzeriteReducer from './reducers/AzeriteReducer';
 import TrinketsReducer from './reducers/TrinketsReducer';
+import WeaponsReducer from "./reducers/WeaponsReducer";
 
 import { Provider } from 'react-redux';
 import {applyMiddleware, createStore, compose, combineReducers } from 'redux';
 
-const rootReducer = combineReducers({ azerite: AzeriteReducer, trinkets: TrinketsReducer });
+const rootReducer = combineReducers({ azerite: AzeriteReducer, trinkets: TrinketsReducer, weapons: WeaponsReducer });
 const store = createStore(rootReducer, compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
