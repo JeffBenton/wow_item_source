@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import AzeriteCard from '../components/Azerite/AzeriteCard'
 import TrinketCard from "../components/Trinkets/TrinketCard";
+import WeaponCard from "../components/Weapons/WeaponCard";
 import { displayPiece } from "../actions/itemActions"
 
 import CardColumns from 'react-bootstrap/CardColumns'
@@ -20,6 +21,11 @@ class ItemsContainer extends Component {
             case "trinkets":
                 return (this.props.trinkets.cards.map(card => (
                     <NavLink style={{ color: "black" }} to={`/trinkets/${card.id}`} key={card.id}><TrinketCard view={this.props.displayPiece} info={card} /></NavLink>
+                )));
+
+            case "weapons":
+                return (this.props.weapons.cards.map(card => (
+                    <NavLink style={{ color: "black" }} to={`/trinkets/${card.id}`} key={card.id}><WeaponCard view={this.props.displayPiece} info={card} /></NavLink>
                 )));
 
             default:
@@ -39,7 +45,8 @@ class ItemsContainer extends Component {
 const mapStateToProps = state => {
     return {
         azerite: state.azerite,
-        trinkets: state.trinkets
+        trinkets: state.trinkets,
+        weapons: state.weapons
     }
 };
 

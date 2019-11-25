@@ -1,6 +1,8 @@
 class WeaponsController < ApplicationController
   def search
-    render status: 200, json: Weapon.all
+    sources = []
+    params[:sources].each_pair { |source, val| sources << source.to_s if val == "true" }
+    render status: 200, json: Weapon.where(role: params[:role], source: sources)
   end
 
   def update
