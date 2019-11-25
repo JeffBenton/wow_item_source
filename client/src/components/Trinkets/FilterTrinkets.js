@@ -12,6 +12,7 @@ class FilterTrinkets extends Component {
 
     componentDidMount() {
         // this.props.fetchTrinkets(this.props.path)
+        console.log(this.props)
     }
 
     handleRoleSelection = e => {
@@ -23,6 +24,7 @@ class FilterTrinkets extends Component {
         const value = this.props.sources[e.target.id];
         this.props.setSource(e.target.id, value);
         // this.props.fetchTrinkets()
+
     };
 
     render() {
@@ -59,8 +61,8 @@ class FilterTrinkets extends Component {
 
 const mapStateToProps = state => {
     return {
-        role: state.role,
-        sources: state.sources
+        role: state.trinkets.role,
+        sources: state.trinkets.sources
     }
 };
 
@@ -68,7 +70,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchTrinkets: path => dispatch(fetchTrinkets(path)),
         setRole: role => dispatch({ type: "SET_ROLE", role }),
-        setSource: source => dispatch({ type: "SET_SOURCE", source })
+        setSource: (source, value) => dispatch({ type: "SET_SOURCE", source, value })
     }
 };
 
