@@ -64,8 +64,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchTrinkets: params => dispatch(fetchTrinkets(params)),
-        setRole: role => dispatch({ type: "SET_ROLE", role }),
-        setSource: (source, value) => dispatch({ type: "SET_SOURCE", source, value })
+        setRole: role => dispatch({ type: "SET_TRINKET_ROLE", role }),
+        setSource: (source, value) => dispatch({ type: "SET_TRINKET_SOURCE", source, value })
     }
 };
 

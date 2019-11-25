@@ -40,7 +40,7 @@ export default function AzeriteReducer(state = {
                 char_class: action.char_class
             };
 
-        case 'SET_SOURCE':
+        case 'SET_AZERITE_SOURCE':
             state.sources[action.source] = !action.value;
             return {
                 ...state,

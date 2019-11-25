@@ -33,6 +33,10 @@ export const fetchTrinkets = params => {
     }
 };
 
+export const fetchWeapons = params => {
+
+};
+
 export const displayPiece = (id, category, type) => {
     return dispatch => {
         dispatch({ type: "LOADING_AZERITE"});

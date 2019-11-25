@@ -86,7 +86,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchAzerite: params => dispatch(fetchAzerite(params)),
         setClass: char_class => dispatch({ type: "SET_CLASS", char_class }),
-        setSource: (source, value) => dispatch({ type: "SET_SOURCE", source, value }),
+        setSource: (source, value) => dispatch({ type: "SET_AZERITE_SOURCE", source, value }),
         setSlot: (slot, value) => dispatch({ type: "SET_SLOT", slot, value})
     }
 };

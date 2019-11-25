@@ -29,13 +29,13 @@ export default function TrinketsReducer(state = {
                 loading: false
             };
 
-        case 'SET_ROLE':
+        case 'SET_TRINKET_ROLE':
             return {
                 ...state,
                 role: action.role
             };
 
-        case 'SET_SOURCE':
+        case 'SET_TRINKET_SOURCE':
             state.sources[action.source] = !action.value;
             return {
                 ...state,
