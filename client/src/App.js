@@ -21,7 +21,7 @@ const App = props => {
           <Router>
               <Switch>
                   <Route path="/azerite/:id">
-                      <AzeriteDisplay info={props.info} />
+                      <AzeriteDisplay info={props.azeritePiece} />
                   </Route>
 
                   <Route path="/weapons/:id">
@@ -29,7 +29,7 @@ const App = props => {
                   </Route>
 
                   <Route path="/trinkets/:id">
-                      <TrinketDisplay info={props.info} />
+                      <TrinketDisplay info={props.trinketsPiece} />
                   </Route>
 
                   <Route path="/azerite">
@@ -79,7 +79,8 @@ const App = props => {
 
 const mapStateToProps = state => {
     return {
-        info: state.piece
+        azeritePiece: state.azerite.info,
+        trinketsPiece: state.trinkets.info
     }
 };
 

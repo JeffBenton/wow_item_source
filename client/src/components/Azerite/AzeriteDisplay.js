@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const AzeriteDisplay = props => {
     const info = props.info;
@@ -43,4 +44,10 @@ const AzeriteDisplay = props => {
     )
 };
 
-export default AzeriteDisplay
+const mapStateToProps = state => {
+    return {
+        info: state.azerite.piece
+    }
+};
+
+export default connect(mapStateToProps)(AzeriteDisplay);

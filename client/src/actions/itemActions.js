@@ -26,7 +26,10 @@ export const fetchTrinkets = params => {
     return dispatch => {
         dispatch({ type: 'LOADING_TRINKETS' });
         let url = '/api/trinkets/search?' + $.param({ role: params.role, sources: params.sources });
-
+        fetch(url)
+            .then(res => res.json())
+            .then(responseJSON => { dispatch({ type: 'ADD_TRINKETS', cards: responseJSON})
+            })
     }
 };
 

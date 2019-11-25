@@ -10,20 +10,15 @@ import Container from "react-bootstrap/Container";
 
 class FilterTrinkets extends Component {
 
-    componentDidMount() {
-        // this.props.fetchTrinkets(this.props.path)
-        console.log(this.props)
-    }
-
     handleRoleSelection = e => {
-        this.props.setRole(e.target.title)
-        // this.props.fetchTrinkets()
+        this.props.setRole(e.target.title);
+        this.props.fetchTrinkets({ role: e.target.title, sources: this.props.sources })
     };
 
     handleSourceSelection = e => {
         const value = this.props.sources[e.target.id];
         this.props.setSource(e.target.id, value);
-        // this.props.fetchTrinkets()
+        this.props.fetchTrinkets({ role: this.props.role, sources: this.props.sources })
 
     };
 
@@ -68,7 +63,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchTrinkets: path => dispatch(fetchTrinkets(path)),
+        fetchTrinkets: params => dispatch(fetchTrinkets(params)),
         setRole: role => dispatch({ type: "SET_ROLE", role }),
         setSource: (source, value) => dispatch({ type: "SET_SOURCE", source, value })
     }
