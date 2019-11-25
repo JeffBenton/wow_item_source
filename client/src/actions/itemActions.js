@@ -1,16 +1,5 @@
 import $ from 'jquery';
 
-export const fetchCards = path => {
-    const upperPath = path.toUpperCase();
-    return (dispatch) => {
-        dispatch({ type: `LOADING_${upperPath}`});
-        fetch(`/api/${path}`)
-            .then(res => res.json())
-            .then(responseJSON => { dispatch({ type: `ADD_${upperPath}`, cards: responseJSON})
-            })
-    }
-};
-
 export const fetchAzerite = params => {
     return (dispatch) => {
         dispatch({ type: "LOADING_AZERITE"});
@@ -35,6 +24,7 @@ export const fetchTrinkets = params => {
 
 export const fetchWeapons = params => {
     return dispatch => {
+        dispatch({ type: 'LOADING_WEAPONS' });
         let url = '/api/weapons/search?' + $.param({ role: params.role, sources: params.sources });
         fetch(url)
             .then(res => res.json())
