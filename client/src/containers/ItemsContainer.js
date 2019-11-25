@@ -25,7 +25,7 @@ class ItemsContainer extends Component {
 
             case "weapons":
                 return (this.props.weapons.cards.map(card => (
-                    <NavLink style={{ color: "black" }} to={`/trinkets/${card.id}`} key={card.id}><WeaponCard view={this.props.displayPiece} info={card} /></NavLink>
+                    <NavLink style={{ color: "black" }} to={`/weapons/${card.id}`} key={card.id}><WeaponCard view={this.props.displayPiece} info={card} /></NavLink>
                 )));
 
             default:
