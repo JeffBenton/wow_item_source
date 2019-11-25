@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ItemsReducer from './reducers/ItemsReducer';
+import AzeriteReducer from './reducers/AzeriteReducer';
 import thunk from 'redux-thunk';
 
 import { Provider } from 'react-redux';
-import {applyMiddleware, createStore, compose} from 'redux';
+import {applyMiddleware, createStore, compose, combineReducers } from 'redux';
 
-const store = createStore(ItemsReducer, compose(
+const rootReducer = combineReducers({ azerite: AzeriteReducer })
+const store = createStore(rootReducer, compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )

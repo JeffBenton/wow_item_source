@@ -76,9 +76,9 @@ class FilterAzerite extends Component {
 
 const mapStateToProps = state => {
     return {
-        char_class: state.char_class,
-        sources: state.sources,
-        slots: state.slots
+        char_class: state.azerite.char_class,
+        sources: state.azerite.sources,
+        slots: state.azerite.slots
     }
 };
 

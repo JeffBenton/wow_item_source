@@ -13,12 +13,12 @@ class ItemsContainer extends Component {
     displayCards = () => {
         switch(this.props.path) {
             case "azerite":
-                return (this.props.cards.azerite.map(card => (
+                return (this.props.azerite.cards.map(card => (
                     <NavLink style={{ color: "black" }} to={`/azerite/${card.id}`} key={card.id}><AzeriteCard view={this.props.displayPiece} info={card} /></NavLink>
                 )));
 
             case "trinkets":
-                return (this.props.cards.trinkets.map(card => (
+                return (this.props.trinkets.cards.map(card => (
                     <NavLink style={{ color: "black" }} to={`/trinkets/${card.id}`} key={card.id}><TrinketCard view={this.props.displayPiece} info={card} /></NavLink>
                 )));
 
@@ -38,8 +38,8 @@ class ItemsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        cards: state.cards,
-        loading: state.loading
+        azerite: state.azerite,
+        trinkets: state.trinkets
     }
 };
 
