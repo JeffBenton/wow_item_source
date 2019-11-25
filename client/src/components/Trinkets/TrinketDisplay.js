@@ -1,8 +1,7 @@
 import React from 'react';
 
 const TrinketDisplay = props => {
-    const info = props.info
-    console.log(props)
+    const info = props.info;
 
     if (info) {
         return (
@@ -11,6 +10,7 @@ const TrinketDisplay = props => {
                 <h3>{info.trinket_type.join(", ")}</h3>
                 <h3>Source: {info.source}</h3>
                 <h3>Boss: {info.boss}</h3>
+                <h3>Views: {info.views}</h3>
             </div>
         )
     }

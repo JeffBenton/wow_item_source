@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCards, fetchAzerite } from "../../actions/itemActions";
+import { fetchAzerite } from "../../actions/itemActions";
 
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -84,7 +84,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCards: path => dispatch(fetchCards(path)),
         fetchAzerite: params => dispatch(fetchAzerite(params)),
         setClass: char_class => dispatch({ type: "SET_CLASS", char_class }),
         setSource: (source, value) => dispatch({ type: "SET_SOURCE", source, value }),

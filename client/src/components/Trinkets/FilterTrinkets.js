@@ -1,24 +1,75 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCards } from "../../actions/itemActions";
+import { fetchTrinkets } from "../../actions/itemActions";
+
+import Row from "react-bootstrap/Row";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 class FilterTrinkets extends Component {
 
     componentDidMount() {
-        this.props.fetchCards(this.props.path)
+        // this.props.fetchTrinkets(this.props.path)
     }
+
+    handleRoleSelection = e => {
+        this.props.setRole(e.target.title)
+        // this.props.fetchTrinkets()
+    };
+
+    handleSourceSelection = e => {
+        const value = this.props.sources[e.target.id];
+        this.props.setSource(e.target.id, value);
+        // this.props.fetchTrinkets()
+    };
 
     render() {
         return (
-            <div>FilterTrinkets</div>
+            <Container>
+                <Row>
+                    <DropdownButton id="dropdown-trinket-button" title={this.props.role}>
+                        {['Agi Dps', 'Int Dps', 'Str Dps', 'Tank', 'Heal'].map(role => (
+                            <div key={role}>
+                                <Dropdown.Item onClick={this.handleRoleSelection} title={role}>{role}</Dropdown.Item>
+                            </div>
+                        ))}
+                    </DropdownButton>
+
+                    <Form>
+                        {['Raid', 'Dungeon', 'PvP'].map(source => (
+                            <div key={source}>
+                                <Form.Check
+                                    onChange={this.handleSourceSelection}
+                                    custom
+                                    checked={this.props.sources[source]}
+                                    label={source}
+                                    type="checkbox"
+                                    id={source}
+                                />
+                            </div>
+                        ))}
+                    </Form>
+                </Row>
+            </Container>
         )
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        fetchCards: path => dispatch(fetchCards(path))
+        role: state.role,
+        sources: state.sources
     }
 };
 
-export default connect(null, mapDispatchToProps)(FilterTrinkets)
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchTrinkets: path => dispatch(fetchTrinkets(path)),
+        setRole: role => dispatch({ type: "SET_ROLE", role }),
+        setSource: source => dispatch({ type: "SET_SOURCE", source })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterTrinkets)

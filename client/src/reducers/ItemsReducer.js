@@ -15,7 +15,8 @@ export default function ItemsReducer(state = {
         Shoulder: true,
         Chest: true
     },
-    loading: false
+    loading: false,
+    role: "Role"
 }, action) {
     switch (action.type) {
         case 'LOADING_AZERITE':
@@ -82,6 +83,12 @@ export default function ItemsReducer(state = {
                 ...state,
                 piece: action.piece,
                 loading: false
+            };
+
+        case 'SET_ROLE':
+            return {
+                ...state,
+                role: action.role
             };
 
         default:

@@ -14,11 +14,19 @@ export const fetchCards = path => {
 export const fetchAzerite = params => {
     return (dispatch) => {
         dispatch({ type: "LOADING_AZERITE"});
-        let url = '/api/search?' + $.param({ class: params.class, sources: params.sources, slots: params.slots });
+        let url = '/api/azerite/search?' + $.param({ class: params.class, sources: params.sources, slots: params.slots });
         fetch(url)
             .then(res => res.json())
             .then(responseJSON => { dispatch({ type: 'ADD_AZERITE', cards: responseJSON})
             })
+    }
+};
+
+export const fetchTrinkets = params => {
+    return dispatch => {
+        dispatch({ type: 'LOADING_TRINKETS' });
+        let url = '/api/trinkets/search?' + $.param({ role: params.role, sources: params.sources });
+
     }
 };
 

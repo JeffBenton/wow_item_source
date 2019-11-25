@@ -1,5 +1,5 @@
 class TrinketsController < ApplicationController
-  def index
+  def search
     render status: 200, json: Trinket.all
   end
 
