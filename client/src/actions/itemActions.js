@@ -34,7 +34,13 @@ export const fetchTrinkets = params => {
 };
 
 export const fetchWeapons = params => {
-
+    return dispatch => {
+        let url = '/api/weapons/search?' + $.param({ role: params.role, sources: params.sources });
+        fetch(url)
+            .then(res => res.json())
+            .then(responseJSON => { dispatch({ type: 'ADD_WEAPONS', cards: responseJSON})
+            })
+    }
 };
 
 export const displayPiece = (id, category, type) => {

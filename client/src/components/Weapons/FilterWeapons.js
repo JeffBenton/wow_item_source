@@ -13,6 +13,7 @@ class FilterWeapons extends Component {
 
     handleRoleSelection = e => {
         this.props.setRole(e.target.title);
+        this.props.fetchWeapons({ role: e.target.title, sources: this.props.sources })
     };
 
     handleSourceSelection = e => {
