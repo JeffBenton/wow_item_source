@@ -6,5 +6,8 @@ Rails.application.routes.draw do
 
     get "/trinkets/search", to: 'trinkets#search'
     post "trinkets/update", to: 'trinkets#update'
+
+    get "/weapons/search", to: 'weapons#seach'
+    post "weapons/update", to: 'weapons#update'
   end
 end

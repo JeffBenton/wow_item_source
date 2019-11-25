@@ -5,6 +5,7 @@ import TrinketDisplay from "./components/Trinkets/TrinketDisplay";
 import ItemsContainer from "./containers/ItemsContainer";
 import FilterAzerite from "./components/Azerite/FilterAzerite";
 import FilterTrinkets from "./components/Trinkets/FilterTrinkets";
+import FilterWeapons from "./components/Weapons/FilterWeapons"
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -25,7 +26,7 @@ const App = props => {
                   </Route>
 
                   <Route path="/weapons/:id">
-                      <AzeriteDisplay info={props.info} />
+                      <AzeriteDisplay info={props.weaponPiece} />
                   </Route>
 
                   <Route path="/trinkets/:id">
@@ -33,39 +34,21 @@ const App = props => {
                   </Route>
 
                   <Route path="/azerite">
-                      <Row>
-                          <Col><FilterAzerite path="azerite" /></Col>
-                      </Row>
-                      <Row>
-                          <NavButtonsContainer />
-                      </Row>
-                      <Row>
-                          <ItemsContainer path="azerite" />
-                      </Row>
+                      <Row><Col><FilterAzerite path="azerite" /></Col></Row>
+                      <Row><NavButtonsContainer /></Row>
+                      <Row><ItemsContainer path="azerite" /></Row>
                   </Route>
 
                   <Route path="/weapons">
-                      <Row>
-                          <Col><FilterAzerite /></Col>
-                      </Row>
-                      <Row>
-                          <NavButtonsContainer />
-                      </Row>
-                      <Row>
-                          <ItemsContainer path="weapons" />
-                      </Row>
+                      <Row><Col><FilterWeapons path="weapons" /></Col></Row>
+                      <Row><NavButtonsContainer /></Row>
+                      <Row><ItemsContainer path="weapons" /></Row>
                   </Route>
 
                   <Route path="/trinkets">
-                      <Row>
-                          <Col><FilterTrinkets path="trinkets" /></Col>
-                      </Row>
-                      <Row>
-                          <NavButtonsContainer />
-                      </Row>
-                      <Row>
-                          <ItemsContainer path="trinkets" />
-                      </Row>
+                      <Row><Col><FilterTrinkets path="trinkets" /></Col></Row>
+                      <Row><NavButtonsContainer /></Row>
+                      <Row><ItemsContainer path="trinkets" /></Row>
                   </Route>
 
                   <Route path="/">
@@ -80,7 +63,8 @@ const App = props => {
 const mapStateToProps = state => {
     return {
         azeritePiece: state.azerite.info,
-        trinketsPiece: state.trinkets.info
+        trinketsPiece: state.trinkets.info,
+        weaponPiece: state.weapons.info
     }
 };
 
