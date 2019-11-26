@@ -9,24 +9,16 @@ export default function TrinketsReducer(state = {
     role: "Role"
 }, action) {
     switch (action.type) {
-        case 'LOADING_TRINKETS':
-            return {
-                ...state,
-                loading: true
-            };
-
         case 'ADD_TRINKETS':
             return {
                 ...state,
                 cards: action.cards,
-                loading: false
             };
 
         case 'DISPLAY_TRINKET':
             return {
                 ...state,
                 piece: action.piece,
-                loading: false
             };
 
         case 'SET_TRINKET_ROLE':

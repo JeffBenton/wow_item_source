@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 export const fetchAzerite = params => {
     return (dispatch) => {
-        dispatch({ type: "LOADING_AZERITE"});
         let url = '/api/azerite/search?' + $.param({ class: params.class, sources: params.sources, slots: params.slots });
         fetch(url)
             .then(res => res.json())
@@ -13,7 +12,6 @@ export const fetchAzerite = params => {
 
 export const fetchTrinkets = params => {
     return dispatch => {
-        dispatch({ type: 'LOADING_TRINKETS' });
         let url = '/api/trinkets/search?' + $.param({ role: params.role, sources: params.sources });
         fetch(url)
             .then(res => res.json())
@@ -24,7 +22,6 @@ export const fetchTrinkets = params => {
 
 export const fetchWeapons = params => {
     return dispatch => {
-        dispatch({ type: 'LOADING_WEAPONS' });
         let url = '/api/weapons/search?' + $.param({ role: params.role, sources: params.sources });
         fetch(url)
             .then(res => res.json())
@@ -35,7 +32,6 @@ export const fetchWeapons = params => {
 
 export const displayPiece = (id, category, type) => {
     return dispatch => {
-        dispatch({ type: "LOADING_AZERITE"});
         const data = { id };
         fetch(`/api/${category}/update`, {
             method: 'post',

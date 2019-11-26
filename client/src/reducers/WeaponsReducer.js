@@ -9,24 +9,16 @@ export default function WeaponsReducer(state = {
     role: "Role"
 }, action) {
     switch (action.type) {
-        case 'LOADING_WEAPONS':
-            return {
-                ...state,
-                loading: true
-            };
-
         case 'ADD_WEAPONS':
             return {
                 ...state,
                 cards: action.cards,
-                loading: false
             };
 
         case 'DISPLAY_WEAPON':
             return {
                 ...state,
                 piece: action.piece,
-                loading: false
             };
 
         case 'SET_WEAPON_ROLE':
