@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTrinkets } from "../../actions/itemActions";
+import { fetchItems } from "../../actions/itemActions";
 
 import Row from "react-bootstrap/Row";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -12,13 +12,13 @@ class FilterTrinkets extends Component {
 
     handleRoleSelection = e => {
         this.props.setRole(e.target.title);
-        this.props.fetchTrinkets({ role: e.target.title, sources: this.props.sources })
+        this.props.fetchItems("trinkets", { role: e.target.title, sources: this.props.sources })
     };
 
     handleSourceSelection = e => {
         const value = this.props.sources[e.target.id];
         this.props.setSource(e.target.id, value);
-        this.props.fetchTrinkets({ role: this.props.role, sources: this.props.sources })
+        this.props.fetchItems("trinkets", { role: this.props.role, sources: this.props.sources })
 
     };
 
@@ -63,7 +63,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchTrinkets: params => dispatch(fetchTrinkets(params)),
+        fetchItems: (path, params) => dispatch(fetchItems(path, params)),
         setRole: role => dispatch({ type: "SET_TRINKET_ROLE", role }),
         setSource: (source, value) => dispatch({ type: "SET_TRINKET_SOURCE", source, value })
     }

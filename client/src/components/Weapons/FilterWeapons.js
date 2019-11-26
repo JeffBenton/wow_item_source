@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchWeapons } from "../../actions/itemActions";
+import { fetchItems } from "../../actions/itemActions";
 
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -13,13 +13,13 @@ class FilterWeapons extends Component {
 
     handleRoleSelection = e => {
         this.props.setRole(e.target.title);
-        this.props.fetchWeapons({ role: e.target.title, sources: this.props.sources })
+        this.props.fetchItems("weapons", { role: e.target.title, sources: this.props.sources })
     };
 
     handleSourceSelection = e => {
         const value = this.props.sources[e.target.id];
         this.props.setSource(e.target.id, value);
-        this.props.fetchWeapons({ role: this.props.role, sources: this.props.sources })
+        this.props.fetchItems("weapons", { role: this.props.role, sources: this.props.sources })
     };
 
     render() {
@@ -63,7 +63,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchWeapons: params => dispatch(fetchWeapons(params)),
+        fetchItems: (path, params) => dispatch(fetchItems(path, params)),
         setRole: role => dispatch({ type: "SET_WEAPON_ROLE", role }),
         setSource: (source, value) => dispatch({ type: "SET_WEAPON_SOURCE", source, value }),
     }

@@ -1,31 +1,12 @@
 import $ from 'jquery';
 
-export const fetchAzerite = params => {
-    return (dispatch) => {
-        let url = '/api/azerite/search?' + $.param({ class: params.class, sources: params.sources, slots: params.slots });
-        fetch(url)
-            .then(res => res.json())
-            .then(responseJSON => { dispatch({ type: 'ADD_AZERITE', cards: responseJSON})
-            })
-    }
-};
-
-export const fetchTrinkets = params => {
+export const fetchItems = (path, params) => {
+    const type = `ADD_${path.toUpperCase()}`;
     return dispatch => {
-        let url = '/api/trinkets/search?' + $.param({ role: params.role, sources: params.sources });
+        let url = `/api/${path}/search?` + $.param(params)
         fetch(url)
             .then(res => res.json())
-            .then(responseJSON => { dispatch({ type: 'ADD_TRINKETS', cards: responseJSON})
-            })
-    }
-};
-
-export const fetchWeapons = params => {
-    return dispatch => {
-        let url = '/api/weapons/search?' + $.param({ role: params.role, sources: params.sources });
-        fetch(url)
-            .then(res => res.json())
-            .then(responseJSON => { dispatch({ type: 'ADD_WEAPONS', cards: responseJSON})
+            .then(responseJSON => { dispatch({ type, cards: responseJSON})
             })
     }
 };
