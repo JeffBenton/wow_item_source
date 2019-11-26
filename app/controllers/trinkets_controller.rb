@@ -2,8 +2,7 @@ class TrinketsController < ApplicationController
   def search
     sources = []
     params[:sources].each_pair { |source, val| sources << source.to_s if val == "true" }
-    role = params[:role].downcase.sub ' ', '-'
-    render status: 200, json: Trinket.where(role: role, source: sources)
+    render status: 200, json: Trinket.where(role: params[:role], source: sources)
   end
 
   def update

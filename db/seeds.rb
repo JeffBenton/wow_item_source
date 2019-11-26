@@ -106,7 +106,7 @@ Trinket.create(
     source: "Raid",
     zone: "The Eternal Palace",
     boss: "Lady Ashvane",
-    role: "str-dps"
+    role: "Str Dps"
 )
 
 Trinket.create(
@@ -114,7 +114,7 @@ Trinket.create(
     source: "Raid",
     zone: "The Eternal Palace",
     boss: "Blackwater Behemoth",
-    role: "int-dps"
+    role: "Int Dps"
 )
 
 Trinket.create(
@@ -122,5 +122,5 @@ Trinket.create(
     source: "Raid",
     zone: "The Eternal Palace",
     boss: "Queen Azshara",
-    role: "heal"
+    role: "Heal"
 )
